@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- task 1 -->
+    <bean id="person"
+          class="task1.core.service.impl.PersonService"> </bean>
+
+    <bean  id ="manager"   class="task1.core.service.impl.ManagerService"> </bean>
+<!--task 2 -->
+    <bean id="personService"
+          class="task2.core.service.impl.PersonService"/>
+
+    <bean id="accountService"
+          class="task2.core.service.impl.AccountServiceImpl">
+        <constructor-arg ref="personService"/>
+    </bean>
+
+<!--    task3-->
+
+    <bean id="task3"  class="task3.service.impl.PersonService"
+    scope="prototype"
+          init-method="init"
+          destroy-method="destroy"
+    > </bean>
+
+
+</beans>
